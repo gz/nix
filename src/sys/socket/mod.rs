@@ -534,7 +534,7 @@ pub enum ControlMessage<'a> {
 // An opaque structure used to prevent cmsghdr from being a public type
 #[doc(hidden)]
 #[allow(missing_debug_implementations)]
-pub struct UnknownCmsg<'a>(&'a cmsghdr, &'a [u8]);
+pub struct UnknownCmsg<'a>(pub &'a cmsghdr, pub &'a [u8]);
 
 // Round `len` up to meet the platform's required alignment for
 // `cmsghdr`s and trailing `cmsghdr` data.  This should match the
