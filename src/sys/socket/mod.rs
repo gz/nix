@@ -1073,7 +1073,7 @@ pub unsafe fn sockaddr_storage_to_addr(
 
     match addr.ss_family as c_int {
         libc::AF_INET => {
-            assert!(len as usize == mem::size_of::<sockaddr_in>());
+            //assert!(len as usize == mem::size_of::<sockaddr_in>());
             let ret = *(addr as *const _ as *const sockaddr_in);
             Ok(SockAddr::Inet(InetAddr::V4(ret)))
         }
